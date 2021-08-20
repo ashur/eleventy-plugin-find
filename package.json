@@ -1,0 +1,38 @@
+{
+  "name": "@aaashur/eleventy-plugin-find",
+  "version": "1.0.0",
+  "description": "An Eleventy utility filter to find array members that match a set of rules",
+  "main": ".eleventy.js",
+  "scripts": {
+    "dev": "onchange -i './index.js' 'test/**' -- npm run test",
+    "lint": "eslint ./*.js test/*.js",
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashur/eleventy-plugin-find.git"
+  },
+  "keywords": [
+    "11ty",
+    "11ty-plugin",
+    "eleventy",
+    "eleventy-plugin"
+  ],
+  "author": {
+    "name": "Ashur Cabrera",
+    "url": "https://ashur.cab/rera"
+  },
+  "bugs": {
+    "url": "https://github.com/ashur/eleventy-plugin-find/issues"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dot-prop": "^6.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "mocha": "^9.1.0",
+    "onchange": "^7.1.0"
+  }
+}
