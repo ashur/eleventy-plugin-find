@@ -53,15 +53,16 @@ tags: [episodes]
 ---
 ```
 
-For simplicity of content management by a variety of contributors it's important that all metadata about an episode exist in the `index.md` frontmatter (rather than using a JSON- or JavaScript-based [directory data file](https://www.11ty.dev/docs/data-template-dir/) to define shared data.)
+For simplicity of content management by a variety of contributors, it's important that all metadata about an episode exist in the `index.md` frontmatter, rather than using a JSON- or JavaScript-based [directory data file](https://www.11ty.dev/docs/data-template-dir/) to define shared data.
 
-However, the episode details page and the transcript page both need to displaythe episode's title and episode number. How can we accomplish without duplicating data between files?
+However, the episode details page and the transcript page both need to display the episode's title and episode number. How can we accomplish without duplicating data between files?
 
 Using an [array of `property-value` rules](#array-of-property-value-objects) to search by `season` and `episode` values, our transcript layout can use the `find` filter to extract the correct Eleventy template object from our `episodes` [collection](https://www.11ty.dev/docs/collections/):
 
 ```njk
+# transcript.njk
 ---
-layout: layouts/transcript.njk
+layout: layouts/base.njk
 ---
 {%- set episodeTemplate = collections.episodes | find([
 	{ property: "data.season", value: season },
@@ -69,15 +70,15 @@ layout: layouts/transcript.njk
 ]) -%}
 ```
 
-By setting the filter result to a template variable, as in `episodeTemplate` in the [Nunjucks](https://mozilla.github.io/nunjucks/templating.html) example above, we can then refer to any property on the of the Eleventy template object.
+By setting the filter result to a template variable, as in `episodeTemplate` in the [Nunjucks](https://mozilla.github.io/nunjucks/templating.html) example above, we can then refer to any property of the Eleventy template object throughout the page.
 
-For example, to display the the `title` variable defined in `index.md` on the transcript page for the same episode:
+For example, to display the `episode` and `title` values defined in `src/content/s01/e01/index.md` on the transcript page for the same episode, the `transcript.njk` template might look something like this:
 
 ```njk
 <h1>Episode {{ episodeTemplate.data.episode }}: {{ episodeTemplate.data.title }}</h1>
 ```
 
-becomes
+which would be rendered as:
 
 ```html
 <h1>Episode 1: Unbridled Moose Game</h1>
@@ -87,7 +88,7 @@ becomes
 
 ## Usage
 
-```
+```njk
 {{ <array> | find( <ruleset> ) }}
 ```
 
