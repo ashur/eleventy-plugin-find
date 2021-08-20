@@ -7,13 +7,13 @@ An Eleventy utility filter to find array members that match a set of rules.
 To install this plugin, run the following command at the root of your Eleventy project:
 
 ```
-npm install --save @aaashur/eleventy-plugin-find
+npm install --save eleventy-plugin-find
 ```
 
 Next, add the following to the body of the `module.exports` in your [Eleventy config file](https://www.11ty.dev/docs/config/):
 
 ```
-eleventyConfig.addPlugin( require("@aaashur/eleventy-plugin-find") );
+eleventyConfig.addPlugin( require("eleventy-plugin-find") );
 ```
 
 ## Example Scenario

@@ -1,5 +1,5 @@
 {
-  "name": "@aaashur/eleventy-plugin-find",
+  "name": "eleventy-plugin-find",
   "version": "1.0.0",
   "description": "An Eleventy utility filter to find array members that match a set of rules",
   "main": ".eleventy.js",
